@@ -22,12 +22,18 @@
 
 <body>
         <form action="homepage.php" method="post">
-            <div class="bg-gradient-to-b from-purple-200 via-indigo-400 to-indigo-600 ...">
+            <div class="bg-gradient-to-b from-red-400 via-gray-300 to-indigo-300 ...">
                 <div class= "min-h-screen text-gray-800 antialiased px-4 py-6 flex flex-col justify-center sm:py-12">
                 <div class="relative py-3 sm:max-w-xl mx-auto text-center">
-                    <span class="filter drop-shadow-md text-3xl font-normal text-white">Hi <?php echo $_SESSION['username'] ?> </span>
+                    <div>
+                    <span class="inline-block filter drop-shadow-md text-3xl font-mono font-bold text-black-400">Hi </span>
+                    <span class="inline-block filter drop-shadow-md text-3xl font-mono font-extrabold text-blue-600"><?php echo $_SESSION['username'] ?></span>
+                    <span class="inline-block filter drop-shadow-md text-3xl font-mono font-bold text-black-400">!! </span>
+                    </div>
+                    <span class="inline-block filter drop-shadow-md text-3xl font-mono font-thin text-black-600">This is your Contact Book </span>
+                    <!-- <span class="filter drop-shadow-md text-3xl font-mono font-extrabold text-red-600">Hi <?php echo $_SESSION['username'] ?>!! </span> -->
                     <div class="relative mt-4 bg-white shadow-md sm:rounded-lg text-left">
-                    <div class="h-2 bg-indigo-400 rounded-t-md"></div>
+                    <div class="h-2 bg-red-600 bg-opacity-75 rounded-t-md"></div>
 
                     <!-- Adding support fot Editing. will check for edit_contact, if set, populate with entries from SQL -->
                     <?php
@@ -56,16 +62,16 @@
                     <input type="email" name="email" value= "<?php echo $email ?>" placeholder="Enter Contact email" class=" border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-indigo-600 rounded-md" required>
                     <div class="flex-1 py-6 px-8">
                         <div class="flex justify-between items-baseline">
-                        <a href="index.php" class="text-sm hover:underline">Go to Log-in</a>
+                        <a href="index.php" class="filter drop-shadow-md mt-4 bg-red-400 hover:bg-red-600 text-white py-2 px-6 rounded-lg">LogOut</a>
                         <?php if($isEdit == "no") { ?>
-                        <button type="submit" name="contact" value="contact" class="filter drop-shadow-md mt-4 bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-6 rounded-lg">Add Contact</button>
+                        <button type="submit" name="contact" value="contact" class="filter drop-shadow-md mt-4 bg-red-400 hover:bg-red-600 text-white py-2 px-6 rounded-lg">Add Contact</button>
                         <?php } else {?>
-                        <button type="submit" name="edit" class="filter drop-shadow-md mt-4 bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-6 rounded-lg">Save Edit</button>
+                        <button type="submit" name="edit" class="filter drop-shadow-md mt-4 bg-red-400 hover:bg-red-600 text-white py-2 px-6 rounded-lg">Save Edit</button>
                         <?php } ?>
                         </div>
 
                         <div class="grid gap-4 grid-cols-1">
-                        <div class="flex-1 drop-shadow-md mt-4 bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-6 rounded-lg ">Contacts</div>
+                        <div class="flex-1 drop-shadow-md mt-4 bg-gray-400 text-white py-2 font-bold px-6 rounded-lg ">Contacts</div>
                         <!-- <div class="flex-1 drop-shadow-md mt-4 bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-6 rounded-lg">Address</div>
                         <div class="flex-1 drop-shadow-md mt-4 bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-6 rounded-lg">PhoneNo</div>
                         <div class="flex-1 drop-shadow-md mt-4 bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-6 rounded-lg">Email</div>
@@ -79,7 +85,7 @@
 
                                 $i = 1; while ($row = mysqli_fetch_array($tasks)) { ?>
                                         <!-- <div class="flex ..."> -->
-                                        <div class="flex-1 drop-shadow-md mt-4 bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-6 rounded-lg "><?php echo $row['name']; ?></div>
+                                        <div class="flex-1 drop-shadow-md mt-4 bg-indigo-400 font-bold text-center text-white py-2 px-6 rounded-lg "><?php echo $row['name']; ?></div>
                                         <!-- <div class="flex-1 ..."><?php echo $row['name']; ?></div> -->
                                         <div class="flex-1 ...">
                                             <p class="inline-block font-bold ...">Address:</p>

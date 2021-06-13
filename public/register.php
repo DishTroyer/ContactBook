@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start();
     require 'C:/xampp/htdocs/newContactBook/dbConfig/config.php';
 ?>
@@ -13,7 +14,7 @@
 </head>
 <body>
         <form action="register.php" method="post">
-            <div class="bg-gradient-to-b from-purple-200 via-indigo-400 to-indigo-600 ...">
+            <div class="bg-gradient-to-b from-red-400 via-gray-300 to-indigo-300 ...">
                 <div class="min-h-screen text-gray-800 antialiased px-4 py-6 flex flex-col justify-center sm:py-12">
                 <div class="relative py-3 sm:max-w-xl mx-auto text-center">
                     <span class="filter drop-shadow-md text-3xl font-normal text-white">Register yourself here</span>
@@ -61,8 +62,8 @@
                         $query_run = mysqli_query($con,$query);
                         if($query_run)
                         {
-                            echo '<script type="text/javascript"> alert("User Registered...Go to Login Page to Login") </script>';
-
+                            echo '<script type="text/javascript"> alert("User Registered") </script>';
+                            // header('Location: ./index.php');
                         }
                         else
                         {
